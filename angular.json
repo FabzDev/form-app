@@ -5,7 +5,17 @@
   "projects": {
     "formApp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -93,6 +103,6 @@
     }
   },
   "cli": {
-    "analytics": "850f221a-752a-412f-82fe-26c421b574eb"
+    "analytics": "eaf42214-63ec-4e88-8a31-040a2682a954"
   }
 }
