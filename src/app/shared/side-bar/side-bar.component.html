@@ -1,0 +1,24 @@
+<h2>Páginas</h2>
+<hr>
+
+<h3>Reactive</h3>
+
+<ul class="list-group">
+  <li *ngFor="let item of reactiveItems"
+  class="list-group-item"
+  [routerLink]="[item.route]"
+  routerLinkActive="active">
+    {{item.name}}
+  </li>
+</ul>
+
+<h3>Auth</h3>
+
+<ul class="list-group">
+  <li *ngFor="let item of authItems"
+  class="list-group-item"
+  [routerLink]="[item.route]"
+  routerLinkActive="active">
+    {{item.name}}
+  </li>
+</ul>
