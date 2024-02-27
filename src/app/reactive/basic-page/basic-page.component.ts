@@ -27,7 +27,7 @@ export class BasicPageComponent implements OnInit{
 
     console.log(this.myForm.value);
 
-    this.myForm.reset({name:'nuevesito', price: 10, inStorage: 100})
+    this.myForm.reset({name:'', price: 0, inStorage: 0})
 
   }
 }
