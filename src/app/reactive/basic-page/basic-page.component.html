@@ -16,12 +16,10 @@
                            placeholder="Nombre del producto"
                            formControlName="name">
 
-                    <span *ngIf="myForm.controls['name'].getError('required') && myForm.touched" class="form-text text-danger">
-                        El producto es requerido
+                    <span *ngIf="isNotValid('name')"
+                    class="form-text text-danger">
+                        {{errorMessage('name')}}
                     </span>
-                    <span *ngIf="myForm.controls['name'].getError('minlength')" class="form-text text-danger">
-                      El nombre del producto debe tener al menos 3 carácteres
-                  </span>
                 </div>
             </div>
 
@@ -79,6 +77,9 @@
 
         <span>Valid</span>
         <pre>{{ myForm.valid| json }}</pre>
+
+        <span>Valid - errors</span>
+        <pre>{{ myForm.controls['name'].errors | json }}</pre>
 
         <span>Pristine</span>
         <pre>{{ myForm.pristine| json }}</pre>
