@@ -31,7 +31,7 @@
                            class="form-control"
                            placeholder="Precio del producto"
                            formControlName="price">
-                    <span *ngIf="!myForm.controls['price'].valid" class="form-text text-danger">
+                    <span *ngIf="isNotValid('price')" class="form-text text-danger">
                         El precio debe de ser 0 o mayor
                     </span>
                 </div>
@@ -46,7 +46,7 @@
                            placeholder="Existencias del producto"
                            formControlName="inStorage">
 
-                    <span *ngIf="!myForm.controls['inStorage'].valid" class="form-text text-danger">
+                    <span *ngIf="isNotValid('inStorage')" class="form-text text-danger">
                          Las existencias deben de ser 0 o mayor
                     </span>
                 </div>
