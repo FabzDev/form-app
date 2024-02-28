@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './dynamic-page.component.html',
@@ -13,6 +13,9 @@ export class DynamicPageComponent {
       ['Ragnarok Online', Validators.required],
     ]),
   });
+
+  public newFavoriteGame: FormControl = new FormControl('', Validators.required)
+
 
   constructor(private fb: FormBuilder) {}
 
@@ -49,9 +52,18 @@ export class DynamicPageComponent {
     }
     console.log(this.dynamicForm.value);
     this.dynamicForm.reset();
+    (this.dynamicForm.controls['favoriteGames'] as FormArray) = this.fb.array([])
   }
 
-  onDelete(index: number): void {
+  onAddFavorite(): void {
+    if (this.newFavoriteGame.invalid) return;
+
+    this.favoriteGames.push(new FormControl(this.newFavoriteGame.value, Validators.required));
+
+    this.newFavoriteGame.reset();
+  }
+
+  onDeleteFavorite(index: number): void {
     this.dynamicForm.controls['favoriteGames'].removeAt(index)
   }
 }
