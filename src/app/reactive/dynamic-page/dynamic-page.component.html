@@ -10,8 +10,8 @@
             <input class="form-control"
                    formControlName="name"
                    placeholder="Nombre de la persona">
-            <span *ngIf="isNotValid()" class="form-text text-danger">
-                   {{errorMessage()}}
+            <span *ngIf="isNotValid('name')" class="form-text text-danger">
+                   {{errorMessage('name')}}
             </span>
         </div>
     </div>
