@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { cantBeStrider } from '../../shared/validators/validators';
+import * as customValidators from '../../shared/validators/validators';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -9,9 +9,9 @@ import { cantBeStrider } from '../../shared/validators/validators';
 export class RegisterPageComponent {
 
   public registerForm: FormGroup = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    user: ['', [Validators.required, cantBeStrider]],
+    name: ['', [Validators.required, Validators.pattern(customValidators.namePattern)]],
+    email: ['', [Validators.required, Validators.pattern(customValidators.emailPattern)]],
+    user: ['', [Validators.required, customValidators.cantBeStrider]],
     pass: ['', [Validators.required, Validators.minLength(6)]],
     pass2: ['', Validators.required],
   })
