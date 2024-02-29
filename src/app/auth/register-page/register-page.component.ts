@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as customValidators from '../../shared/validators/validators';
+import { ValidatorsService } from '../../shared/services/validators.service';
+// import * as customValidators from '../../shared/validators/validators';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -9,17 +10,20 @@ import * as customValidators from '../../shared/validators/validators';
 export class RegisterPageComponent {
 
   public registerForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern(customValidators.namePattern)]],
-    email: ['', [Validators.required, Validators.pattern(customValidators.emailPattern)]],
-    user: ['', [Validators.required, customValidators.cantBeStrider]],
+    name: ['', [Validators.required, Validators.pattern(this.validatorsService.namePattern)]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
+    user: ['', [Validators.required, this.validatorsService.cantBeStrider]],
     pass: ['', [Validators.required, Validators.minLength(6)]],
     pass2: ['', Validators.required],
   })
 
-  constructor(private fb: FormBuilder){}
+  constructor(
+    private fb: FormBuilder,
+    private validatorsService: ValidatorsService
+    ){}
 
-  isValid(){
-    // TODO: con servicios
+  isValid(field: string){
+    return this.validatorsService.isInvalidField(this.registerForm, field);
   }
 
   onSave(): void{

@@ -15,7 +15,8 @@
                            formControlName="name"
                            placeholder="Nombre del usuario">
 
-                    <span class="form-text text-danger">
+                    <span *ngIf="isValid('name')"
+                    class="form-text text-danger">
                         Debe de ser en formato de nombre y apellido
                     </span>
                 </div>
@@ -30,7 +31,9 @@
                            formControlName="email"
                            placeholder="Email del usuario">
 
-                    <span class="form-text text-danger">
+                    <span
+                    *ngIf="isValid('email')"
+                    class="form-text text-danger">
                         mensaje de error del email
                     </span>
                 </div>
@@ -45,7 +48,9 @@
                            formControlName="user"
                            placeholder="Nombre código del usuario">
 
-                    <span class="form-text text-danger">
+                    <span
+                    *ngIf="isValid('user')"
+                    class="form-text text-danger">
                          El username no puede ser Strider
                     </span>
                 </div>
@@ -60,7 +65,9 @@
                            formControlName="pass"
                            placeholder="Password de su cuenta">
 
-                    <span class="form-text text-danger">
+                    <span
+                    *ngIf="isValid('pass')"
+                    class="form-text text-danger">
                          La contraseña debe de ser mayor de 6 caracteres.
                     </span>
                 </div>
@@ -75,7 +82,9 @@
                            formControlName="pass2"
                            placeholder="Confirmar la contraseña">
 
-                    <span class="form-text text-danger">
+                    <span
+                    *ngIf="isValid('pass2')"
+                    class="form-text text-danger">
                          Las contraseñas deben de ser iguales
                     </span>
                 </div>
