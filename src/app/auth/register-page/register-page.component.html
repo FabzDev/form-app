@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col">
 
-        <form autocomplete="off">
+        <form [formGroup]="registerForm" (onsubmit)="onSave()"  autocomplete="off">
 
             <!-- Nombre -->
             <div class="row mb-3">
@@ -12,6 +12,7 @@
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
+                           formControlName="name"
                            placeholder="Nombre del usuario">
 
                     <span class="form-text text-danger">
@@ -26,7 +27,9 @@
                 <div class="col-sm-9">
                     <input type="email"
                            class="form-control"
+                           formControlName="email"
                            placeholder="Email del usuario">
+
                     <span class="form-text text-danger">
                         mensaje de error del email
                     </span>
@@ -39,7 +42,9 @@
                 <div class="col-sm-9">
                     <input type="text"
                            class="form-control"
+                           formControlName="user"
                            placeholder="Nombre código del usuario">
+
                     <span class="form-text text-danger">
                          El username no puede ser Strider
                     </span>
@@ -52,6 +57,7 @@
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
+                           formControlName="pass"
                            placeholder="Password de su cuenta">
 
                     <span class="form-text text-danger">
@@ -66,6 +72,7 @@
                 <div class="col-sm-9">
                     <input type="password"
                            class="form-control"
+                           formControlName="pass2"
                            placeholder="Confirmar la contraseña">
 
                     <span class="form-text text-danger">
@@ -90,24 +97,24 @@
 </div>
 
 
-<h2>Form Valid: </h2>
-<h2>Form Status: </h2>
-<h2>Form Pending: </h2>
-<h2>Form errors</h2>
-<pre>{{ 'formulario' | json }}</pre>
+<h2>Form Valid: {{registerForm.valid}}</h2>
+<h2>Form Status: {{registerForm.status}}</h2>
+<h2>Form Pending: {{registerForm.pending}}</h2>
+<h2>Form errors {{registerForm.errors}}</h2>
+<pre>{{ registerForm.value | json }}</pre>
 
 <h5>Nombre</h5>
-<pre>{{ 'formulario' | json }}</pre>
+<pre>{{ registerForm.controls['name'].value | json }}</pre>
 
 <h5>Email</h5>
-<pre>{{ 'formulario' | json }}</pre>
+<pre>{{ registerForm.controls['email'].value | json }}</pre>
 
 <h5>Username</h5>
-<pre>{{ 'formulario' | json }}</pre>
+<pre>{{ registerForm.controls['user'].value | json }}</pre>
 
 
 <h5>Password</h5>
-<pre>{{ 'formulario' | json }}</pre>
+<pre>{{ registerForm.controls['pass'].value | json }}</pre>
 
 <h5>Confirmar</h5>
-<pre>{{ 'formulario' | json }}</pre>
+<pre>{{ registerForm.controls['pass2'].value | json }}</pre>

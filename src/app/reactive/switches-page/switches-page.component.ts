@@ -24,7 +24,10 @@ export class SwitchesPageComponent {
       return;
     }
 
-    console.log(this.switchesForm.value);
+
+    const {terms, ...newPerson} = this.switchesForm.value;
+
+    console.log(newPerson);
 
   }
 
